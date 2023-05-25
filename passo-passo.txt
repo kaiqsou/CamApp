@@ -1,8 +1,7 @@
 1. atulizar o ionic
 npm i -g @ionic/cli
 
-1.2 checar se esta na versão
- 7.1.1
+1.2 checar se esta na versão 7.1.1 com: ionic -v
 
 criar o projeto
 ionic start nome blank --type=angular
@@ -11,9 +10,36 @@ selecionando o ngModules
 instalar o capacitor
 npm install @capacitor/camera @capacitor/preferences @capacitor/filesystem
 
-instalar o Pwa
+instalar o PWA
 npm install @ionic/pwa-elements
-e importalo no mains ts
+	importá-lo no src/main.ts
+	e executar: ng add @angular/pwa
 
+Criar a pasta www
+ionic build --prod
+obs : tera que ser feito apos cada clonagem do git
 
+No html da home adicionar o botao no content
+	seguindo esse codigo ele ficara na direita(end) na parte inferior da tela
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="warning">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
+criar um serviço com o comando 
+ionic g service services/nome
+
+criar uma pasta models ou interfaces
+ dentro da models criar uma model
+	chamada foto.interface.ts
+		nessa interface adiconar o seguinte codigo
+			export interface Foto {
+ 					 filepath: string;
+  					 webviewPath?: string;
+					}
+no foto.service.ts adicionar acima do construtor
+	  //lista das fotos amazenadas no dispositivo
+  	fotos : Foto[] = []
+  	//cria uma variavel para armazenar o local fisico das fotos
+  	private FOTO_ARMAZENAMENTO: String ='Fotos'
