@@ -1,0 +1,19 @@
+1. atulizar o ionic
+npm i -g @ionic/cli
+
+1.2 checar se esta na versão
+ 7.1.1
+
+criar o projeto
+ionic start nome blank --type=angular
+selecionando o ngModules
+
+instalar o capacitor
+npm install @capacitor/camera @capacitor/preferences @capacitor/filesystem
+
+instalar o Pwa
+npm install @ionic/pwa-elements
+e importalo no mains ts
+
+
+
