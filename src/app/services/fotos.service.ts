@@ -25,7 +25,7 @@ export class FotosService {
     const listaFotos = await Preferences.get({ key: this.FOTO_ARMAZENAMENTO});
     this.fotos = JSON.parse(listaFotos.value as string) || [];
 
-    // Se estiver rodando no navegador...
+    // Se Não estiver rodando no navegador...
     if (!this.platform.is('hybrid')) {
       // Exibir a foto lendo-a no formato base64
       for (let foto of this.fotos) {
@@ -101,10 +101,10 @@ export class FotosService {
 
         return (await this.convertBlobToBase64(blob) ) as string;
     }
-}   //excuir omagem, removendo a dos dados de referencia e do sistema de aruivos
+}   //excuir imagem, removendo a dos dados de referencia e do sistema de arquivos
     public async deletePicture(foto :Foto, posicao: number){
       this.fotos.splice(posicao,1);
-      //remover essa foto da matriz de dados sobescrevendo as matriz de dados da foto existente
+      // atualizar foto da matriz de dados sobescrevendo as matriz de dados da foto existente
       Preferences.set({
         key: this.FOTO_ARMAZENAMENTO,
         value: JSON.stringify(this.fotos)
