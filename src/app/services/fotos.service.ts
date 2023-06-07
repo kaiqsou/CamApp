@@ -6,7 +6,7 @@ import { Preferences } from '@capacitor/preferences';
 import { Platform } from '@ionic/angular';
 import { readBlobAsBase64 } from '@capacitor/core/types/core-plugins';
 import { Capacitor } from '@capacitor/core';
-import { fileURLToPath } from 'url';
+
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +46,7 @@ export class FotosService {
       const fotoCapturada = await Camera.getPhoto({
         resultType: CameraResultType.Uri, //dados baseados em arquivado; oferece o melhor desempenho
         source: CameraSource.Camera, //Tirar automaticament uma nova foto com a camera
-        quality: 100.
+        quality: 50, //Deixar em 50 para nao gerar um arquivo muito grande em cameras boas pakas
       });
       const salvaArquivoFoto = await this.salvarFoto(fotoCapturada);
       //adicionar Foto
